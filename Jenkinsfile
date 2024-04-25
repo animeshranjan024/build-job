@@ -14,7 +14,7 @@ pipeline {
 	}
 
 	triggers{
-		cron('H 1,12 * * *')
+		cron('@daily 1,14 * * *')
 	}
 
 	// environment {
