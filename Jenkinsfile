@@ -2,19 +2,19 @@ pipeline {
 
 	//pararmeter
 	parameters{
-		string(name: 'RELEASE_NUMBER', defaultValue: '', description: 'Release Number', trim: true)
-		string(name: 'ENVIRONMENT', defaultValue:'', description: 'Environment Name', trim: true)
-		string(name: 'BRANCH_NAME', defaultValue: '', description: 'Branch Name', trim:true)
+		string(name: 'RELEASE_NUMBER', defaultValue: '24.1.0', description: 'Release Number', trim: true)
+		string(name: 'ENVIRONMENT', defaultValue:'ALPHAQ', description: 'Environment Name', trim: true)
+		string(name: 'BRANCH_NAME', defaultValue: 'central', description: 'Branch Name', trim:true)
 	}
 
 	agent any
 
-	option {
-		timestamp()
+	options {
+		timestamps()
 	}
 
 	triggers{
-		cron('H(0-1) 9,15 * * *')
+		cron('H 1,12 * * *')
 	}
 
 	// environment {
