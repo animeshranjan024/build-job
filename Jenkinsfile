@@ -27,7 +27,7 @@ pipeline {
     		steps {
     			script {
 					echo "Build Id: ${params.RELEASE_NUMBER}.build${env.BUILD_NUMBER}_${env.DATE}"
-					currentBuild.displayName = "${params.RELEASE_NUMBER}_${env.BUILD_NUMBER}_${params.ENVIRONMENT}"
+					currentBuild.displayName = "${params.RELEASE_NUMBER}_${env.BUILD_NUMBER}:${params.ENVIRONMENT}"
 				}
     		}
     	}
