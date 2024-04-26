@@ -14,19 +14,20 @@ pipeline {
 	}
 
 	triggers{
-		cron('@daily 1,14 * * *')
+		cron('H(0-1) 1,14 * * *')
 	}
 
-	// environment {
-
-	// }
+	environment {
+		DATE = new Date().format('yyyy-mm-dd')
+	}
 
     stages {
 
     	stage('Update as run') {
     		steps {
     			script {
-					echo "Update as run"
+					echo "Build Id: ${params.RELEASE_NUMBER}.build${env.BUILD_NUMBER}_${env.DATE}"
+					currentBuild.displayName = "${params.RELEASE_NUMBER}_${env.BUILD_NUMBER}_${params.ENVIRONMENT}"
 				}
     		}
     	}
