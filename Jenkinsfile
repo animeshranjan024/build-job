@@ -35,7 +35,8 @@ pipeline {
     	stage('Source Checkout') {
 			steps {
 				script{
-					echo "Source Checkout"
+					echo "Checkout the code from production repository"
+					git branch: 'production', credentialsId: '9f3f711a-9c7a-460b-87c6-34bbbe46272f', url: 'https://github.com/animeshranjan024/production-code-pipeline-1'
 				}
 			}
     	}
